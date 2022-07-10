@@ -1,5 +1,6 @@
 import numpy as np
 import pickle
+from random import *
 from keras.models import load_model
 from sklearn.model_selection import KFold
 from sklearn import preprocessing
@@ -57,7 +58,7 @@ def train_all_models(Database):
     AverageRecall = {}
 
     #Define k cross validation of k = 5, randomize seed value
-    kfold = KFold(n_splits=5,shuffle=True,random_state=5)
+    kfold = KFold(n_splits=5,shuffle=True,random_state=randint(1,1000))
     #loop through each model
     for modelName,features in featureDic.items():
         scores = []
